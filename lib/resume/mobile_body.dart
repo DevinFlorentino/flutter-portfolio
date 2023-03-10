@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio_app/resume/widgets/education.dart';
 import 'package:portfolio_app/resume/widgets/introduction.dart';
 import 'package:portfolio_app/resume/widgets/profile_picture.dart';
+import 'package:portfolio_app/resume/widgets/work_experience.dart';
 
 import '../components/text_components.dart';
 import 'constants/content.dart';
 import 'theme/colors.dart';
+import 'theme/text.dart';
 
 class MobileBody extends StatelessWidget {
   const MobileBody({super.key});
@@ -16,27 +19,40 @@ class MobileBody extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: appBarColor,
-        title: appBarText(profileNameMobile),
+        title: appBarTextWidget(appBarHeaderText),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(minimumPadding),
         child: Column(
           children: [
             const Padding(
-              padding: EdgeInsets.all(8.0),
-              child: AspectRatio(aspectRatio: 16 / 9, child: ProfilePicture()),
+              padding: EdgeInsets.only(top: mediumPadding),
+              child: AspectRatio(
+                aspectRatio: 16 / 9,
+                child: ProfilePicture(),
+              ),
             ),
-            const Expanded(child: Introduction()),
+            Padding(
+              padding: const EdgeInsets.all(mediumPadding),
+              child: headerTextWidget(profileName),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: mediumPadding),
+              child: buildDividerWidget(darkDividerColor),
+            ),
             Expanded(
-                child: ListView.builder(
-                    itemCount: 8,
-                    itemBuilder: ((context, index) => Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Container(
-                            color: const Color.fromARGB(230, 154, 124, 237),
-                            height: 100,
-                          ),
-                        ))))
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    Builder(builder: (context) {
+                      return const Introduction();
+                    }),
+                    const Education(),
+                    const WorkExperience(),
+                  ],
+                ),
+              ),
+            ),
           ],
         ),
       ),

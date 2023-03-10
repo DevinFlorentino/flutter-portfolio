@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../components/text_components.dart';
 import '../constants/content.dart';
+import '../theme/text.dart';
 
 class Introduction extends StatelessWidget {
   const Introduction({super.key});
@@ -9,8 +10,9 @@ class Introduction extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: paragraphText(introText),
+      padding: const EdgeInsets.fromLTRB(
+          mediumPadding, 0, mediumPadding, mediumPadding),
+      child: introTextWidget(introText),
     );
   }
 }

@@ -8,8 +8,11 @@ class ProfilePicture extends StatelessWidget {
     return const CircleAvatar(
       radius: 50.0,
       child: ClipOval(
-          child: Image(
-        image: AssetImage('assets/images/DevinFlorentino.jfif'),
+          child: ColorFiltered(
+        colorFilter: ColorFilter.mode(Colors.blueGrey, BlendMode.color),
+        child: Image(
+          image: AssetImage('assets/images/DevinFlorentino.jfif'),
+        ),
       )),
     );
   }

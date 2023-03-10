@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio_app/resume/constants/content.dart';
 
+import 'theme/text.dart';
+
 class DesktopBody extends StatelessWidget {
   const DesktopBody({super.key});
 
@@ -11,7 +13,7 @@ class DesktopBody extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: Colors.deepPurple,
-        title: const Text(profileNameDesktop,
+        title: const Text(appBarHeaderText,
             style: TextStyle(fontFamily: "RampartOne"),
             maxLines: 2,
             softWrap: true),
@@ -20,12 +22,12 @@ class DesktopBody extends StatelessWidget {
         children: [
           Expanded(
             child: Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(minimumPadding),
               child: Column(
                 children: [
                   Align(
                     child: Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.all(minimumPadding),
                       child: AspectRatio(
                           aspectRatio: 9 / 2,
                           child: Container(
@@ -37,7 +39,7 @@ class DesktopBody extends StatelessWidget {
                       child: ListView.builder(
                           itemCount: 8,
                           itemBuilder: ((context, index) => Padding(
-                                padding: const EdgeInsets.all(8.0),
+                                padding: const EdgeInsets.all(minimumPadding),
                                 child: Container(
                                   color:
                                       const Color.fromARGB(230, 154, 124, 237),
@@ -49,7 +51,7 @@ class DesktopBody extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(minimumPadding),
             child: Container(
               width: 200,
               color: const Color.fromARGB(230, 154, 124, 237),
