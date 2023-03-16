@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio_app/components/text_components.dart';
-import 'package:portfolio_app/resume/theme/colors.dart';
 
+import '../../components/text_components.dart';
 import '../constants/content.dart';
+import '../theme/colors.dart';
 import '../theme/text.dart';
 
 class Education extends StatelessWidget {
@@ -10,22 +10,22 @@ class Education extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: mediumPadding),
-      child: Column(
-        children: [
-          headerTextWidget("Education"),
-          buildDividerWidget(lightDividerColor),
-          Column(
+    return Column(
+      children: [
+        headerTextWidget("Education"),
+        buildDividerWidget(lightDividerColor),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: mediumPadding),
+          child: Column(
             children: [
               buildInstitutionText(),
               buildLocationText(),
               buildQualificationText(),
               buildDateObtainedText()
             ],
-          )
-        ],
-      ),
+          ),
+        )
+      ],
     );
   }
 }

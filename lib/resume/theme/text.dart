@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio_app/resume/theme/colors.dart';
+
+import 'colors.dart';
 
 // ******************* Padding *******************
 const double minimumPadding = 8.0;

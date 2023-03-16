@@ -1,12 +1,8 @@
-import 'dart:convert';
-import 'dart:developer';
-
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:portfolio_app/resume/theme/colors.dart';
 
 import '../../components/text_components.dart';
 import '../constants/content.dart';
+import '../theme/colors.dart';
 import '../theme/text.dart';
 
 class WorkExperience extends StatelessWidget {
@@ -14,53 +10,44 @@ class WorkExperience extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: minimumPadding),
-      child: Column(children: [
-        headerTextWidget("Work Experience"),
-        buildDividerWidget(lightDividerColor),
-        buildWorkExperienceList(),
-      ]),
-    );
+    return Column(children: [
+      headerTextWidget("Work Experience"),
+      buildDividerWidget(lightDividerColor),
+      Padding(
+        padding: const EdgeInsets.symmetric(horizontal: mediumPadding),
+        child: buildWorkExperienceItems(),
+      ),
+    ]);
   }
 }
 
-List<Widget> buildEmploymentList() {
-  List<Widget> employmentList = [];
+Widget buildWorkExperienceItems() {
+  List<Widget> experienceList = [];
   workExperienceMap.forEach((key, data) {
-    employmentList.add(Padding(
+    List dailyTasks = data['dailyTasks'].toList();
+    experienceList.add(Padding(
       padding: const EdgeInsets.only(bottom: mediumPadding),
       child: Column(
         children: [
           buildCompanyJobTitleRow(data['company'], data['jobTitle']),
           buildTimePeriod(data['timeFrame']),
+          buildResponsibilityList(dailyTasks),
         ],
       ),
     ));
   });
 
-  return employmentList;
-}
-
-List<Widget> buildResponsibilityList(Map skills) {
-  List<Widget> skillsList = [];
-  skills.forEach((key, responsibility) {
-    skillsList.add(Padding(
-      padding: const EdgeInsets.only(bottom: mediumPadding),
-      child: Column(
-        children: [
-          buildResponsibility(responsibility),
-        ],
-      ),
-    ));
-  });
-
-  return skillsList;
-}
-
-buildWorkExperienceList() {
   return Column(
-    children: buildEmploymentList(),
+    children: experienceList,
+  );
+}
+
+Widget buildResponsibilityList(List dailyTasks) {
+  return Column(
+    crossAxisAlignment: CrossAxisAlignment.stretch,
+    children: dailyTasks
+        .map((task) => paragraphTextWidget('$bulletPoint $task'))
+        .toList(),
   );
 }
 

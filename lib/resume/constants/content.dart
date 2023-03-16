@@ -1,5 +1,6 @@
 const String appBarHeaderText = 'SOFTWARE DEVELOPER';
 const String profileName = 'DEVIN FLORENTINO';
+const String bulletPoint = '\u2022';
 
 // Introduction
 const String introText =
@@ -24,7 +25,7 @@ const Map workExperienceMap = {
     'company': 'Liquidedge Solutions',
     'jobTitle': 'Software Developer',
     'timeFrame': 'June 2017 – Current',
-    'skills': {
+    'dailyTasks': {
       'Scope planning, interpretation for the development of backend systems (Logical planning, Database Planning and Structuring, Flow analysis, Development)',
       'Frontend integration',
       '3rd-party software and payment gateway integration',
@@ -41,7 +42,7 @@ const Map workExperienceMap = {
     'company': 'Olé Media Group',
     'jobTitle': 'Junior Software Developer',
     'timeFrame': 'Dec 2015 – May 2017',
-    'skills': {
+    'dailyTasks': {
       'Handling support issues/requests: Bug fixes, website amendments',
       'New features/add-ons',
       'Maintenance, upgrades and code reviews, on existing code bases',
@@ -52,7 +53,7 @@ const Map workExperienceMap = {
     'company': 'Olé Media Group',
     'jobTitle': 'PHP Support Agent',
     'timeFrame': 'Apr 2015 – Nov 2015',
-    'skills': {
+    'dailyTasks': {
       'Frontline support',
       'Website and server monitoring',
       'Website quality assurance',
@@ -64,7 +65,7 @@ const Map workExperienceMap = {
 };
 
 // Skills
-const List skillList = [
+const List<String> skillList = [
   'Mobile applications, Flutter Framework. App examples: [ GPS Locator, Financial Management, Loyalty/Rewards Tracking, Trauma Training Management ]',
   'Backend systems and Restful API(s) using the PHP',
   'Database management, structural planning and design, SQL',
